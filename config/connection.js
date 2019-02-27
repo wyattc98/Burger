@@ -1,4 +1,5 @@
-var mysql = require('mysql')
+require('dotenv').config()
+var mysql = require('mysql');
 var connection;
 
 if(process.env.JAWSDB_URL) {
@@ -7,8 +8,8 @@ if(process.env.JAWSDB_URL) {
     connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: ' Zebra925',
-        database:''
+        password: process.env.DB_PASS,
+        database:'burgers_db'
     })
 };
 
