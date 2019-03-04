@@ -9,9 +9,16 @@ if(process.env.JAWSDB_URL) {
         host: 'localhost',
         user: 'root',
         password: process.env.DB_PASS,
-        database:'burgers_db'
-    })
+        database:'burgers_db',
+   })
 };
 
-connection.connect();
+connection.connect(function(err) {
+    if(err) {
+        console.log("error connecting: " + err.stack);
+        return;
+    }
+    console.log("Connected as id " + connection.threadId);
+});
+
 module.exports = connection;
